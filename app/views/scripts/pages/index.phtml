@@ -11,10 +11,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>main</title>
 </head>
+
 <body>
 <!-- component -->
-
-
     <!-- page -->
     <main class="min-h-screen w-full bg-gradient-to-r from-emerald-400 to-teal-300 p-2 text-gray-700" x-data="layout">
         <!-- header page -->
@@ -32,47 +31,134 @@
         
         </header>
 
-        <div class="flex">
+    <div class="flex">
             <!-- aside -->
-            <aside class="flex w-72 flex-col space-y-5 border-r-2 border-blue-200 bg-white" style="height: 90.5vh"
-                x-show="asideOpen">
-                <!--botones menu lateral -->
+        <aside class="flex w-72 flex-col space-y-5 border-r-2 border-blue-200 bg-white" style="height: 90.5vh"
+            x-show="asideOpen">
+                
+            <!--botones menu lateral -->
 
-                <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-5 hover:bg-gray-100 hover:text-blue-600">
-                    <span class="text-2xl"><i class="bx bx-home"></i></span>
-                    <span>My tasks</span>
-                </a>
+            <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-5 hover:bg-gray-100 hover:text-blue-600">
+                <span class="text-2xl"><i class="bx bx-home"></i></span>
+                <span>My tasks</span>
+            </a>
 
-                <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
-                    <span class="material-symbols-outlined">add</span>
-                    <span>New task</span>
-                </a>
+            <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
+                <span class="material-symbols-outlined">add</span>
+                <span>New task</span>
+            </a>
 
-                <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
-                    <span class="material-symbols-outlined">edit_note</span>
-                    <span>Modify</span>
-                </a>
+            <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
+                <span class="material-symbols-outlined">edit_note</span>
+                <span>Modify</span>
+            </a>
 
-                <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
-                    <span class="material-symbols-outlined">file_open</span>
-                    <span>Show selected</span>
-                </a>
+            <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
+                <span class="material-symbols-outlined">file_open</span>
+                <span>Show selected</span>
+            </a>
 
-                <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
+            <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
                 <span class="material-symbols-outlined">checklist</span>
-                    <span>Show all</span>
-                </a>
+                <span>Show all</span>
+            </a>
 
-                <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
+            <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
                 <span class="material-symbols-outlined">delete</span>
-                    <span>Delete</span>
-                </a>
-            </aside>
+                <span>Delete</span>
+            </a>
+
+        </aside>
 
             <!-- main content page -->
-            <div>
-                
-            </div>
+        
+            <!-- tabla de tasks -->
+        
+            <!-- component -->
+        <table class="w-full">
+            <!-- Fila encabezados-->
+                <thead>
+                    <tr>
+                        <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Title</th>
+                        <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Summary</th>
+                        <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Status</th>
+                        <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Actions</th>
+                        <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">User</th>
+                    </tr>
+                </thead>
+            <tbody>
+                <!-- TASK 1 -->
+
+                <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+                    <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                        <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Company name</span>
+                        Arrays
+                    </td>
+                    <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                        <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Country</span>
+                        German
+                    </td>
+                    <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                        <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
+                        <span class="rounded bg-red-400 py-1 px-3 text-xs font-bold">deleted</span>
+                    </td>
+                    <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                        <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
+                        <a href="#" class="text-blue-400 hover:text-blue-600 underline">Edit</a>
+                        <a href="#" class="text-blue-400 hover:text-blue-600 underline pl-6">Remove</a>
+                    </td>
+                </tr>
+
+            <!-- TASK 2 -->    
+            
+            <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Company name</span>
+                    Squary
+                </td>
+                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Country</span>
+                    Schweden
+                </td>
+                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
+                    <span class="rounded bg-green-400 py-1 px-3 text-xs font-bold">active</span>
+                </td>
+                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
+                    <a href="#" class="text-blue-400 hover:text-blue-600 underline">Edit</a>
+                    <a href="#" class="text-blue-400 hover:text-blue-600 underline pl-6">Remove</a>
+                </td>
+            </tr>
+
+        <!-- TASK 3 -->  
+
+            <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Company name</span>
+                    ghome
+                </td>
+                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Country</span>
+                    Switzerland
+                </td>
+                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
+                    <span class="rounded bg-yellow-400 py-1 px-3 text-xs font-bold">inactive</span>
+                </td>
+                <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                    <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
+                    <a href="#" class="text-blue-400 hover:text-blue-600 underline">Edit</a>
+                    <a href="#" class="text-blue-400 hover:text-blue-600 underline pl-6">Remove</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+                   
+        
         </div>
+        
     </main>
 </body>
+
+</html>
