@@ -14,39 +14,48 @@
 
 
 <!-- formulario -->
-<div class="flex justify-center items-center w-full bg-gradient-to-r from-emerald-700 to-emerald-600">
-    <div class="w-1/2 bg-white rounded shadow-2xl p-8 m-4">
-        <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-6">New Task</h1>
+<div class="flex justify-center items-center w-full bg-gradient-to-r from-yellow-200 to-purple-300">
+    <div class="w-2/5 bg-white rounded shadow-2xl p-8 m-4">
+        
+    <h1 class="block w-full font-roboto font-semibold text-center text-gray-700 text-2xl mb-6">New Task</h1>
+        
         <form action="/" method="post">
 
             <div class="flex flex-col mb-4">
-                <label class="mb-2 font-bold text-lg text-gray-900" for="first_name">Title</label>
-                <input class="border py-2 px-3 text-grey-800" type="text" name="title" id="title">
-            </div>
-            <div class="flex flex-col mb-4">
-                <label class="mb-2 font-bold text-lg text-gray-900" for="email">User</label>
-                <input class="border py-2 px-3 text-grey-800" type="email" name="email" id="email">
-            </div>
-            
-            <div class="flex flex-col mb-4">
-                <label class="mb-2 font-bold text-lg text-gray-900" for="Date">Date</label>
-                <input class="border py-2 px-3 text-grey-800" type="date" name="date" id="date">
-            </div>
-            
-             <div class="flex flex-col mb-4">
-                <label class="mb-2 font-bold text-lg text-gray-900" for="textarea">textarea</label>
-                <textarea class="border py-2 px-3 text-grey-800" name="textarea" id="textarea"></textarea>
+                <label class="mb-2 font-roboto font-semibold text-lg text-gray-900" for="title_task">Title</label>
+                <input class="border border-fuchsia-300 py-2 px-3 text-gray-800" type="text" name="title" id="title">
             </div>
 
             <div class="flex flex-col mb-4">
-                <label class="mb-2 font-bold text-lg text-gray-900" for="Status">Status</label>
-                <select class="border py-2 px-3 text-grey-800">
+                <label class="mb-2 font-roboto font-semibold text-lg text-gray-900" for="textarea">Text</label>
+                <textarea class="border border-purple-300 py-2 px-3 text-grey-800" name="textarea" id="textarea"></textarea>
+            </div>
+
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-roboto font-semibold text-lg text-gray-900" for="Status">Status</label>
+                <select class="border border-violet-300 py-2 px-3 text-grey-800">
                     <option>Pending</option>
                     <option>Running</option>
                     <option>Completed</option>
                 </select>
             </div>
-            <button class="block bg-green-400 hover:bg-green-600 text-white uppercase text-lg mx-auto p-4 rounded" type="submit">Save</button>
+
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-roboto font-semibold text-lg text-gray-900" for="Date">Starting Date</label>
+                <input class="border border-indigo-300 py-2 px-3 text-grey-800" type="date" name="date" id="date">
+            </div>
+
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-roboto font-semibold text-lg text-gray-900" for="Date">Closing Date</label>
+                <input class="border border-lime-300 py-2 px-3 text-grey-800" type="date" name="date" id="date">
+            </div>
+
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-roboto font-semibold text-lg text-gray-900" for="user_name">User</label>
+                <input class="border border-yellow-300 py-2 px-3 text-grey-800" type="text" name="user" id="user">
+            </div>
+            
+            <button class="block bg-rose-300 hover:bg-rose-500 text-white uppercase text-lg mx-auto p-2 rounded" type="submit">Save</button>
         </form>
     </div>
 </div>
