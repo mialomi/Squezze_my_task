@@ -1,0 +1,133 @@
+{
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Finish Report",
+        "summary": "Write and finalize the monthly sales report.",
+        "state": "pending",
+        "start_time": "2023-07-20 09:00:00",
+        "end_time": "",
+        "user": "john_doe"
+      },
+      {
+        "id": 2,
+        "title": "Prepare Presentation",
+        "summary": "Create a PowerPoint presentation for the team meeting.",
+        "state": "running",
+        "start_time": "2023-07-20 13:30:00",
+        "end_time": "",
+        "user": "jane_smith"
+      },
+      {
+        "id": 3,
+        "title": "Review Code",
+        "summary": "Review and provide feedback on the latest code changes.",
+        "state": "completed",
+        "start_time": "2023-07-19 16:45:00",
+        "end_time": "2023-07-20 10:00:00",
+        "user": "sam_wilson"
+      },
+      {
+        "id": 4,
+        "title": "Plan Marketing Campaign",
+        "summary": "Brainstorm ideas and outline the marketing campaign strategy.",
+        "state": "pending",
+        "start_time": "",
+        "end_time": "",
+        "user": "emily_jones"
+      },
+      {
+        "id": 5,
+        "title": "Update Website Design",
+        "summary": "Redesign the company's website for a more modern look.",
+        "state": "running",
+        "start_time": "2023-07-21 11:00:00",
+        "end_time": "",
+        "user": "michael_brown"
+      },
+      {
+        "id": 6,
+        "title": "Send Invoices",
+        "summary": "Generate and send invoices to clients.",
+        "state": "completed",
+        "start_time": "2023-07-19 14:30:00",
+        "end_time": "2023-07-19 15:30:00",
+        "user": "kate_anderson"
+      },
+      {
+        "id": 7,
+        "title": "Organize Team Building Event",
+        "summary": "Plan and coordinate a team-building event for the department.",
+        "state": "pending",
+        "start_time": "",
+        "end_time": "",
+        "user": "david_smith"
+      },
+      {
+        "id": 8,
+        "title": "Conduct Market Research",
+        "summary": "Gather data and analyze market trends for a new product launch.",
+        "state": "running",
+        "start_time": "2023-07-22 09:30:00",
+        "end_time": "",
+        "user": "linda_williams"
+      },
+      {
+        "id": 9,
+        "title": "Finalize Budget Proposal",
+        "summary": "Review and finalize the budget proposal for the upcoming quarter.",
+        "state": "completed",
+        "start_time": "2023-07-20 16:00:00",
+        "end_time": "2023-07-21 10:00:00",
+        "user": "james_miller"
+      },
+      {
+        "id": 10,
+        "title": "Prepare Training Material",
+        "summary": "Create training materials for the new employee orientation.",
+        "state": "pending",
+        "start_time": "",
+        "end_time": "",
+        "user": "susan_davis"
+      },
+      {
+        "id": 11,
+        "title": "Review Product Mockups",
+        "summary": "Provide feedback on the product mockups from the design team.",
+        "state": "running",
+        "start_time": "2023-07-23 14:30:00",
+        "end_time": "",
+        "user": "robert_johnson"
+      },
+      {
+        "id": 12,
+        "title": "Conduct Performance Reviews",
+        "summary": "Conduct performance reviews for team members.",
+        "state": "completed",
+        "start_time": "2023-07-22 11:00:00",
+        "end_time": "2023-07-22 13:00:00",
+        "user": "laura_smith"
+      },
+      {
+        "id": 13,
+        "title": "Create Social Media Campaign",
+        "summary": "Develop a social media campaign for the new product launch.",
+        "state": "pending",
+        "start_time": "",
+        "end_time": "",
+        "user": "alexander_jackson"
+      },
+      {
+        "id": 14,
+        "title": "Prepare Sales Presentation",
+        "summary": "Create a sales pitch for potential clients.",
+        "state": "running",
+        "start_time": "2023-07-24 09:00:00",
+        "end_time": "",
+        "user": "olivia_thompson"
+      },
+      
+      
+    ]
+  }
+  
