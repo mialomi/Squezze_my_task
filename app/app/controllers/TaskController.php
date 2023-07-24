@@ -6,11 +6,11 @@ class TaskController extends Controller
 {
     private $taskModel;
 
-   /* public function __construct($dataFilePath)
+   public function __construct($dataFilePath)
     {
         $dataFilePath = ROOT_PATH . '/models/data/data.json';
         $this->taskModel = new TaskModel($dataFilePath);
-    }*/
+    }
 
     public function addTask($taskData)
     {
@@ -28,6 +28,7 @@ class TaskController extends Controller
         $this->taskModel->modifyTask($taskId, $newTaskData);
         $this->redirectTo('/');
     }
+    
 
     private function redirectTo($url)
     {
