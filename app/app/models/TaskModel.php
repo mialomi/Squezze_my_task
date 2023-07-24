@@ -4,15 +4,12 @@ class TaskModel
 {
     private $dataFilePath;
     private $tasks;
-    
 
     public function __construct($dataFilePath)
     {
         $this->dataFilePath = ROOT_PATH . '/models/data/data.json';
         $this->loadData();
-
     }
-
 
     private function loadData()
     {
@@ -29,7 +26,7 @@ class TaskModel
         $jsonData = json_encode($this->tasks, JSON_PRETTY_PRINT);
         file_put_contents($this->dataFilePath, $jsonData);
     }
-    
+
     public function addTask($taskData)
     {
         $taskId = count($this->tasks['tasks']) + 1;

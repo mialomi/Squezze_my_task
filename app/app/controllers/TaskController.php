@@ -29,7 +29,10 @@ class TaskController extends Controller
         $this->redirectTo('/');
     }
     
-
+    public function showAllTasks()
+    {
+        $this->taskModel->showTasks();
+    }
     private function redirectTo($url)
     {
         header("Location: $url");
