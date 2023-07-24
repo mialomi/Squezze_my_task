@@ -10,61 +10,58 @@ public function __construct() {
     $this->task_list = array();
     
 }
-private function saveData($task_data) : void{
+    private function saveData($task_data) : void{
+            
+        $jsonData = json_encode($task_data, JSON_PRETTY_PRINT);
+        file_put_contents($this->dataFilePath, $jsonData);
+
+        }
+
+    private function readData() {
+        // va al archivo json
+        $tasksData = file_get_contents($this->dataFilePath);
         
-    $jsonData = json_encode($task_data, JSON_PRETTY_PRINT);
-    file_put_contents($this->dataFilePath, $jsonData);
+        // lee el archivo json y lo transforma 
+        $data_read = json_decode($tasksData, true);
 
-    }
-
-private function readData() {
-    // va al archivo json
-    $tasksData = file_get_contents($this->dataFilePath);
-    
-    // lee el archivo json y lo transforma 
-    $data_read = json_decode($tasksData, true);
+        return $data_read;
 }
-public function addtask(Task $task) : void {
+    public function addtask(Task $task) : void {
 
-    $task_data[] = $task;
-    //$this->task_list[] = $task_data;
-    
-    $this ->saveData($task_data);
+        $task_data[] = $task;
+        //$this->task_list[] = $task_data;
+        
+        $this ->saveData($task_data);
 
 }   
 
 
+    //delete task
 
-/*private function loadData()
-    {
-        if (file_exists($this->dataFilePath)) {
-            $jsonData = file_get_contents($this->dataFilePath);
-            $this->tasks = json_decode($jsonData, true);
-        } else {
-            $this->tasks = ["tasks" => []];
-        }
-    }*/
+   
 
-    
+    public function editTask($id_task, $newData) {
 
-    public function getAllTasks()
-    {
-        return $this->tasks['tasks'];
-    }
+        $old_data = $this->readData();
 
-    public function modifyTask($taskId, $newTaskData)
-    {
-        foreach ($this->tasks['tasks'] as &$task) {
-            if ($task['id'] === $taskId) {
-                $task = array_merge($task, $newTaskData);
-                $this->saveData();
-                return true;
+        foreach ($old_data as $task) {
+            if ($id_task == $task['id']) {
+
+                $newData['name'] = $task['name'];
+                $newData['text'] = $task['text'];
+                $newData['status'] = $task['status'];
+                $newData['start_time'] = $task['start_time'];
+                $newData['end_time'] = $task['end_time'];
+
+                $this->saveData($newData);
+            }
+            else{
+                return "Error. Task not found.";
             }
         }
-        return false;
     }
 
-
+    //show Task
 }
 
 ?>
