@@ -23,11 +23,13 @@ private function readData() {
     
     // lee el archivo json y lo transforma 
     $data_read = json_decode($tasksData, true);
+
+    return $data_read; 
 }
 public function addtask(Task $task) : void {
 
     $task_data[] = $task;
-    //$this->task_list[] = $task_data;
+    //$this->task_list[]= $task_data;
     
     $this ->saveData($task_data);
 
@@ -49,22 +51,19 @@ public function addtask(Task $task) : void {
 
     public function getAllTasks()
     {
-        return $this->tasks['tasks'];
+        return $this->task_list['tasks'];
     }
 
-    public function modifyTask($taskId, $newTaskData)
-    {
-        foreach ($this->tasks['tasks'] as &$task) {
-            if ($task['id'] === $taskId) {
-                $task = array_merge($task, $newTaskData);
-                $this->saveData();
-                return true;
+
+    public function deleteTask($taskId){
+        $tasks = $this -> readData(); 
+        foreach($this-> $tasks as $task){
+            if($task->getId == $taskId){
+                unset($this-> task_list[$task]); 
             }
         }
-        return false;
+        $this -> saveData($tasks);
     }
-
-
 }
 
 ?>

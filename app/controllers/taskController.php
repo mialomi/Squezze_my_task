@@ -67,4 +67,8 @@ public function modifyTask($taskId, $newTaskData)
     
 }
 
+public function deleteTask($taskId){
+    
+    $this->taskModel->deleteTask($taskId);
+}
 }
