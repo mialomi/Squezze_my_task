@@ -61,10 +61,21 @@ class ApplicationController extends Controller
     }
 }
 
-public function modifyTask($taskId, $newTaskData)
-{
-    $this->taskModel->modifyTask($taskId, $newTaskData);
+public function editTaskAction($taskId, $newTaskData) {
+
+    if($_SERVER["REQUEST_METHOD"] === "POST") {
+        
+        if(!empty($_POST)){
+
+            $newData = $_POST;
+            $id_task = $_POST['id'];
+
+            $this->taskModel->ediTask($id_task, $newData);
+
+        }
+        header('location: index.phtml');
     
 }
 
+}
 }
