@@ -68,18 +68,18 @@
                         <th class="p-3 font-bold uppercase bg-purple-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Text</th>
                         <th class="p-3 font-bold uppercase bg-violet-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Status</th>
                         <th class="p-3 font-bold uppercase bg-indigo-100 text-gray-600 border border-gray-300 hidden lg:table-cell">Starting date</th>
-                        <th class="p-3 font-bold uppercase bg-lime-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Closing date</th>
+                        <th class="p-3 font-bold uppercase bg-lime-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Ending date</th>
                         <th class="p-3 font-bold uppercase bg-yellow-200 text-gray-600 border border-gray-300 hidden lg:table-cell">User</th>
                         <th class="p-3 font-bold uppercase bg-amber-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Show</th>
                         <th class="p-3 font-bold uppercase bg-amber-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Edit</th>
-                        <th class="p-3 font-bold uppercase bg-amber-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Remove</th>
+                        <th class="p-3 font-bold uppercase bg-amber-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Delete</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <!-- TASK 1 EJEMPLO -->
                     <?php foreach ($this->tasks as $task) : ?>
-                        <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-4">
+                        <tr class="odd:bg-white even:bg-stone-50 bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-4">
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                                 <?php echo $task['title']; ?>
                             </td>
@@ -92,10 +92,9 @@
                                 </span>
                             </td>
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['datetime']; ?></td>
-                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static" value= "- - -"></td>
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['endtime']; if(empty($task['endtime'])){ echo " - ";}; ?></td>
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                                <?php echo $task['user']; ?>
-                            </td>
+                                <?php echo $task['user']; ?></td>
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b   block lg:table-cell relative lg:static">
                                 <a href="show?id=<?php echo $task['id']; ?>" class="text-blue-400 hover:text-blue-600 underline pl-6"><span class="material-symbols-outlined bg-">
                                         visibility

@@ -13,7 +13,6 @@ class taskController extends Controller
 
    //     $this->taskModel = $taskModel;
     }
-
     public function indexAction()
     {   
         $taskList = new TaskModel();
@@ -57,7 +56,7 @@ class taskController extends Controller
         // 2. Una vez validado, llama al método añadir la tarea de /MODELS
 
           if(!empty($_POST)){
-            $taskList->newTask($data['title'], $data['textarea'], $data['user'], $data['status'], $data['datetime']);
+            $taskList->newTask($data['title'], $data['textarea'], $data['user'], $data['status'], $data['datetime'], $data['endtime']);
           }     
         // Redireccionar a la página de lista de tareas
         header('Location: index');

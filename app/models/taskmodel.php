@@ -7,13 +7,16 @@ class TaskModel {
     protected $dataFilePath = ROOT_PATH.'/app/models/data/data.json';
 
 
-    public function newTask(string $title, string $textArea, string $user,string $status, $datetime) {
+    public function newTask(string $title, string $textArea, string $user,string $status, mixed $datetime, mixed $endTime) {
         // Contador
         $newId = count($this->readData()) + 1;
     
         // Obtener la hora actual en el formato deseado si no se proporciona un valor en $datetime
         if ($datetime === null) {
             $datetime = date("M d, Y g:i A");
+        }
+        if ($endTime === null) {
+            $endTime = date("M d, Y g:i A");
         }
     
         $data = [
@@ -22,7 +25,8 @@ class TaskModel {
             'textarea' => $textArea,
             'user' => $user,
             'status'=> $status,
-            'datetime' => $datetime, // Agregar la hora actual o el valor proporcionado al array
+            'datetime' => $datetime,
+            'endtime' => $endTime // Agregar la hora actual o el valor proporcionado al array
         ];
     
         // Meto el archivo json descodificado en tasks
