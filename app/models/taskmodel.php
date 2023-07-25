@@ -7,24 +7,30 @@ class TaskModel {
     protected $dataFilePath = ROOT_PATH.'/app/models/data/data.json';
 
 
-    public function newTask(string $title, string $textArea, string $user){
-        //contador
+    public function newTask(string $title, string $textArea, string $user,string $status, $datetime) {
+        // Contador
         $newId = count($this->readData()) + 1;
-      
-       
+    
+        // Obtener la hora actual en el formato deseado si no se proporciona un valor en $datetime
+        if ($datetime === null) {
+            $datetime = date("M d, Y g:i A");
+        }
+    
         $data = [
             'id' => $newId,
             'title' => $title,
             'textarea' => $textArea,
             'user' => $user,
+            'status'=> $status,
+            'datetime' => $datetime, // Agregar la hora actual o el valor proporcionado al array
         ];
-        //meto el archivo json descodificado en tasks
-        $tasks= $this->readData();
-        //luego añado data al array tasks
-        $tasks[]=$data;
-         //guarda
-        $this->saveData($tasks);
     
+        // Meto el archivo json descodificado en tasks
+        $tasks = $this->readData();
+        // Luego añado data al array tasks
+        $tasks[] = $data;
+        // Guarda
+        $this->saveData($tasks);
     }
     private function saveData($task_data) : void{
             

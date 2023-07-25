@@ -1,5 +1,5 @@
 <?php
-include_once "app\models\TaskModel.php";
+//include_once "app\models\TaskModel.php";
 /**
  * Base controller for the application.
  * Add general things in this controller.
@@ -33,7 +33,7 @@ class taskController extends Controller
         if($_SERVER["REQUEST_METHOD"] === "POST"){
             $data = $_POST;;
 
-            if(empty($data ["name"])){
+            if(empty($data ["title"])){
                 $error_message["title"] = "Name is required";
             }
             else{
@@ -57,10 +57,10 @@ class taskController extends Controller
         // 2. Una vez validado, llama al método añadir la tarea de /MODELS
 
           if(!empty($_POST)){
-            $taskList->newTask($data['title'], $data['textarea'], $data['user']);
+            $taskList->newTask($data['title'], $data['textarea'], $data['user'], $data['status'], $data['datetime']);
           }     
         // Redireccionar a la página de lista de tareas
-        header('Location: index.phtml');
+        header('Location: index');
         exit;
     }
 }
