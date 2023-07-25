@@ -63,6 +63,7 @@ class TaskModel {
         {
             return $this->readData();
         }
+        
         public function deleteTask($id){
            
            $tasks = $this->readData();
