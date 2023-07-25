@@ -78,7 +78,7 @@ public function editTaskAction()
 
         $taskList->modifyTask($_GET["id"],$_POST['title'], $_POST['textarea'], $_POST['user']);
         
-        header('Location: newTask ');
+        header('Location: index ');
     }
     
 }
@@ -94,7 +94,7 @@ public function showTaskAction(){
 public function deleteTaskAction(){
     $taskList = new TaskModel();
     $taskList->deleteTask($_GET['id']);
-    //header( 'location: index');
+    header( 'location: index');
         exit;
 }
 }
