@@ -94,7 +94,7 @@ public function showTaskAction(){
 public function deleteTaskAction(){
     $taskList = new TaskModel();
     $taskList->deleteTask($_GET['id']);
-    header( 'location: index');
+    //header( 'location: index');
         exit;
 }
 }
