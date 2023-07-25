@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>showTask</title>
+</head>
+<body>
+
+<!-- show task -->
+
+<div class='flex items-center justify-center min-h-screen bg-gradient-to-r from-yellow-300 to-purple-400'>
+
+    <div class='w-full max-w-lg py-8 items-center justify-center mx-auto bg-[#FFFBFB] rounded-lg shadow-xl'>
+
+        <div class="w-3/4 mx-auto">
+          
+            <div class="w-full items-center justify-center">
+                
+            </div>
+            <div class="w-full justify-center items-center text-center">
+
+                    <h1 class="text-center text-xl font-roboto font-semibold text-gray-900 mb-2"><?php echo $this->task['title']?></h1><br>
+                    
+                    <p class= "text-left text-gray-700 font-roboto font-semibold text-base">Text: <?php echo $this->task['textarea']?></p><br>
+                    <p class= "text-base text-gray-400">
+
+                    </p>
+                    <p class="text-left text-gray-700 font-roboto font-semibold text-base">Status: <?php echo $this->task['status']?></p><br>
+                    <p class="text-left text-gray-700 font-normal font-semibold text-base">Starting date: <?php echo $this->task['dateTime']?></p><br>
+                    <p class="text-left text-gray-700 font-normal font-semibold text-base">Ending date: <?php echo $this->task['endTime']?></p><br>
+                    <p class="text-left text-gray-700 font-normal font-semibold text-base">User: <?php echo $this->task['user']?></p>
+                
+                <a href="index">
+                <button class="transition-colors bg-rose-400 hover:bg-purple-500 mt-5 p-1 rounded-lg w-1/6 text-white">
+                    Back</button>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
