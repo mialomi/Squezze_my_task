@@ -13,6 +13,7 @@ class taskController extends Controller
 
    //     $this->taskModel = $taskModel;
     }
+
     public function indexAction()
     {   
         $taskList = new TaskModel();

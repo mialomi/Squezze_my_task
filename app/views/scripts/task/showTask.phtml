@@ -21,17 +21,18 @@
             </div>
             <div class="w-full justify-center items-center text-center">
 
-                    <h1 class="text-center text-xl font-roboto font-semibold text-gray-900 mb-2">Title of my task</h1><br>
-                    <p class= "text-left text-gray-700 font-roboto font-semibold text-base">Text</p><br>
+                    <h1 class="text-center text-xl font-roboto font-semibold text-gray-900 mb-2"><?php echo $this->task['title']?></h1><br>
+                    
+                    <p class= "text-left text-gray-700 font-roboto font-semibold text-base">Text: <?php echo $this->task['textarea']?></p><br>
                     <p class= "text-base text-gray-400">
 
                     </p>
-                    <p class="text-left text-gray-700 font-roboto font-semibold text-base">Status</p><br>
-                    <p class="text-left text-gray-700 font-normal font-semibold text-base">Starting date</p><br>
-                    <p class="text-left text-gray-700 font-normal font-semibold text-base">Closing date</p><br>
-                    <p class="text-left text-gray-700 font-normal font-semibold text-base">User</p>
+                    <p class="text-left text-gray-700 font-roboto font-semibold text-base">Status: <?php echo $this->task['status']?></p><br>
+                    <p class="text-left text-gray-700 font-normal font-semibold text-base">Starting date: <?php echo $this->task['dateTime']?></p><br>
+                    <p class="text-left text-gray-700 font-normal font-semibold text-base">Ending date: <?php echo $this->task['endTime']?></p><br>
+                    <p class="text-left text-gray-700 font-normal font-semibold text-base">User: <?php echo $this->task['user']?></p>
                 
-                <a href="<?php echo WEB_ROOT ?>">
+                <a href="index">
                 <button class="transition-colors bg-rose-400 hover:bg-purple-500 mt-5 p-1 rounded-lg w-1/6 text-white">
                     Back</button>
                 </a>
