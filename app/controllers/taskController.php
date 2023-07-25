@@ -12,8 +12,9 @@ class taskController extends Controller
     public function __construct() {
 
    //     $this->taskModel = $taskModel;
+    }public function landingAction(){
+        
     }
-
     public function indexAction()
     {   
         $taskList = new TaskModel();
