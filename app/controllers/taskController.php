@@ -4,9 +4,10 @@ include_once "app\models\TaskModel.php";
  * Base controller for the application.
  * Add general things in this controller.
  */
-class ApplicationController extends Controller 
+class taskController extends Controller 
 {
 	private $taskModel;
+
 
     public function __construct() {
 
@@ -14,46 +15,49 @@ class ApplicationController extends Controller
     }
 
     public function indexAction()
-    {
+    {   
+        $taskList = new TaskModel();
         // Obtener todas las tareas
-        $tasks = $this->taskModel->getAllTasks();
+        $tasks = $taskList->getAllTasks();
 
         // Pasar las tareas a la vista para mostrarlas
         $this->view->tasks = $tasks;
     }
 
     public function NewTaskAction() {
-      
+        $taskList = new TaskModel();
+
         $error_message = array();
 
         // 1. Obtener los datos del formulario de creación de tareas y comprobar que no están vacíos
         if($_SERVER["REQUEST_METHOD"] === "POST"){
-    
-            if(empty($_POST ["name"])){
-                $error_message["name"] = "Name is required";
+            $data = $_POST;;
+
+            if(empty($data ["name"])){
+                $error_message["title"] = "Name is required";
             }
             else{
-                $title = $_POST["name"];
+                $title = $data["title"];
                 }
             
-            if(empty($_POST ["text"])){
-                $error_message["text"] = "Text is required";
+            if(empty($data ["textarea"])){
+                $error_message["textarea"] = "Text is required";
             }
             else{
-                $text = $_POST["text"];
+                $text = $data["textarea"];
                 }
-            if(empty($_POST ["user"])){
+            if(empty($data["user"])){
                 $error_message["user"] = "User is required";
-            }
+             }
             else{
-                $user = $_POST["user"];
+                $user = $data["user"];
                 }
         
         //***/ PENDIENTE: HAY QUE AÑADIR $error_user al html para que lo vea
         // 2. Una vez validado, llama al método añadir la tarea de /MODELS
 
           if(!empty($_POST)){
-            $this->taskModel->addTask();
+            $taskList->newTask($data['title'], $data['textarea'], $data['user']);
           }     
         // Redireccionar a la página de lista de tareas
         header('Location: index.phtml');
@@ -61,10 +65,32 @@ class ApplicationController extends Controller
     }
 }
 
-public function modifyTask($taskId, $newTaskData)
+public function editTaskAction()
 {
-    $this->taskModel->modifyTask($taskId, $newTaskData);
+    $taskList= new TaskModel();
+    $this->view->tasks = $taskList->getTaskById($_GET['id']);
+            
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+        $taskList->modifyTask($_GET["id"],$_POST['title'], $_POST['textarea'], $_POST['user']);
+        
+        header('Location: newTask ');
+    }
     
 }
+public function showTaskAction(){
+    $taskList = new TaskModel();
+  
+       
+        $this->view->task =  $taskList->getTaskById($_GET['id']);
+    
 
+
+}
+public function deleteTaskAction(){
+    $taskList = new TaskModel();
+    $taskList->deleteTask($_GET['id']);
+    header( 'location: index');
+        exit;
+}
 }
