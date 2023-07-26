@@ -18,26 +18,30 @@
           
             <div class="w-full items-center justify-center">
                 
-            </div>
             <div class="w-full justify-center items-center text-center">
 
-                    <h1 class="text-center text-xl font-roboto font-semibold text-gray-900 mb-2"><?php echo $this->task['title']?></h1><br>
-                    
-                    <p class= "text-left text-gray-700 font-roboto font-semibold text-base">Text: <?php echo $this->task['textarea']?></p><br>
-                    <p class= "text-base text-gray-400">
+                <!-- Nombre del título -->
+                <div class="flex flex-col mb-4">
+                <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="title_task">Title</label>
+                </div>
+                <p class="text-left text-gray-700 font-roboto font-bold text-base"><?php echo $this->task['title']?></p><br>
 
-                    </p>
-                    <p class="text-left text-gray-700 font-roboto font-semibold text-base">Status: <?php echo $this->task['status']?></p><br>
-                    <p class="text-left text-gray-700 font-normal font-semibold text-base">Starting date: <?php echo $this->task['dateTime']?></p><br>
-                    <p class="text-left text-gray-700 font-normal font-semibold text-base">Ending date: <?php echo $this->task['endTime']?></p><br>
-                    <p class="text-left text-gray-700 font-normal font-semibold text-base">User: <?php echo $this->task['user']?></p>
-                
+                <!-- Resto del contenido -->
+                <p class="text-left text-gray-700 font-roboto font-bold text-base"><?php echo $this->task['textarea']?></p><br>
+                <p class="text-base text-gray-400"></p>
+                <p class="text-left text-gray-700 font-roboto font-bold text-base"><?php echo $this->task['status']?></p><br>
+                <p class="text-left text-gray-700 font-normal font-bold text-base"><?php echo $this->task['dateTime']?></p><br>
+                <p class="text-left text-gray-700 font-normal font-bold text-base"><?php echo $this->task['endTime']?></p><br>
+                <p class="text-left text-gray-700 font-normal font-bold text-base"><?php echo $this->task['user']?></p>
+
+                <!-- Botón de retroceso -->
                 <a href="index">
-                <button class="transition-colors bg-rose-400 hover:bg-purple-500 mt-5 p-1 rounded-lg w-1/6 text-white">
-                    Back</button>
+                    <button class="transition-colors bg-rose-400 hover:bg-purple-500 mt-5 p-1 rounded-lg w-1/6 text-white">
+                        Back
+                    </button>
                 </a>
-
             </div>
+
         </div>
     </div>
 </div>

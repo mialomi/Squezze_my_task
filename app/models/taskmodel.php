@@ -26,10 +26,10 @@ class TaskModel {
             'user' => $user,
             'status'=> $status,
             'datetime' => $datetime,
-            'endtime' => $endTime // Agregar la hora actual o el valor proporcionado al array
+            'endtime' => $endTime
         ];
     
-        // Meto el archivo json descodificado en tasks
+        
         $tasks = $this->readData();
         // Luego añado data al array tasks
         $tasks[] = $data;
@@ -83,24 +83,25 @@ class TaskModel {
     
         
     
-        public function modifyTask($id,$title, $textArea, $user)
-        {       //Llamas el metodo readData y lo envuelves en una variable, para luego iterar sobre ella
+        public function modifyTask($id, $title, $textArea, $user, $status, $startTime, $endTime){ 
+                  //Llamas el metodo readData y lo envuelves en una variable, para luego iterar sobre ella
             $data = $this->readData();
             
             foreach ($data as $i => $editData){
-                //data es el array, i es la pos, y editData el contenido, si editData[id] es igual al parametro $id
+                
                 if ($editData['id'] == $id){
                     //Se procede a cambiar los datos del array, de la pos que marca i
-                    $data[$i]['title']=$title;
-                    $data[$i]['textarea']=$textArea;
-                    $data[$i]['user']=$user;
+                    $data[$i]['title']= $title;
+                    $data[$i]['textarea']= $textArea;
+                    $data[$i]['user']= $user;
+                    $data[$i]['status'] = $status;
+                    $data[$i]['datetime']= $startTime;
+                    $data[$i]['endtime']= $endTime;
                     
                     //luego se guardan
     
                     $this ->saveData($data);
                 }
-    
-                
             }
            
         }
