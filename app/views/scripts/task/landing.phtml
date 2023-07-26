@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
     <title>landingPage</title>
+    <!-- Agrega el enlace al archivo CSS de Tailwind (puedes usar el enlace de CDN o descargarlo e incluirlo localmente) -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- component -->
-<div class="h-screen bg-gradient-to-r from-yellow-300 to-purple-400 flex items-center">
-	<section class="w-full bg-cover bg-center py-32">
-		<div class="container mx-auto text-center text-white">
-			
-			<h1 class="font-roboto text-7xl font-semibold tracking-wide mb-10">SQUEZZE MY TASK</h1>
-			<p class="font-roboto text-xl m-10">Make my task easy</p>
-			
-			<a href="index" class="text-white font-bold bg-yellow-300  py-4 px-12 rounded-full hover:bg-lime-300">Start</a>
-
-		</div>
-	</section
-</div>
+    <div class="h-screen bg-gradient-to-r from-yellow-300 to-purple-400 flex items-center">
+        <section class="w-full bg-cover bg-center py-10 sm:py-20 md:py-32">
+            <div class="container mx-auto text-center text-white">
+                
+                <!-- Utiliza 'whitespace-normal' y 'flex' para ajustar el texto en diferentes tamaños de pantalla -->
+                <h1 class="font-roboto md:text-7xl font-semibold tracking-wide mb-6 whitespace-normal md:flex md:flex-col md:items-center sm:text-7xl text-5xl">
+                    SQUEZZE <br class="md:hidden"> MY TASK
+                </h1>
+                <p class="font-roboto text-xl m-6 md:m-10">Make my task easy</p>
+                
+                <!-- Ajustar el tamaño del botón en pantallas diferentes -->
+                <a href="index" class="text-white font-bold bg-yellow-300 py-3 px-8 sm:py-4 sm:px-10 md:py-4 md:px-12 rounded-full hover:bg-lime-300">Start</a>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
-
