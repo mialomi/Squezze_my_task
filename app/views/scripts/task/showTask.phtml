@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>showTask</title>
+    <title>Squezze My Task!</title>
 </head>
 <body>
 
@@ -22,24 +22,30 @@
 
                 <!-- Nombre del título -->
                 <div class="flex flex-col mb-4">
-                <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="title_task">Title</label>
-                </div>
-                <p class="text-left text-gray-700 font-roboto font-bold text-base"><?php echo $this->task['title']?></p><br>
+                    <label class="text-left mb-2 font-roboto font-bold text-lg text-gray-700" for="title_task">Title</label>
+                    <p class="text-left text-gray-700 font-roboto text-base"><?php echo $this->task['title']?></p><br>
 
-                <!-- Resto del contenido -->
-                <p class="text-left text-gray-700 font-roboto font-bold text-base"><?php echo $this->task['textarea']?></p><br>
-                <p class="text-base text-gray-400"></p>
-                <p class="text-left text-gray-700 font-roboto font-bold text-base"><?php echo $this->task['status']?></p><br>
-                <p class="text-left text-gray-700 font-normal font-bold text-base"><?php echo $this->task['dateTime']?></p><br>
-                <p class="text-left text-gray-700 font-normal font-bold text-base"><?php echo $this->task['endTime']?></p><br>
-                <p class="text-left text-gray-700 font-normal font-bold text-base"><?php echo $this->task['user']?></p>
+                    <label class="text-left mb-2 font-roboto font-bold text-lg text-gray-700" for="textarea">Text</label>
+                    <p class="text-left text-gray-700 font-roboto text-base"><?php echo $this->task['textarea']?></p><br>
 
-                <!-- Botón de retroceso -->
-                <a href="index">
-                    <button class="transition-colors bg-rose-400 hover:bg-purple-500 mt-5 p-1 rounded-lg w-1/6 text-white">
-                        Back
-                    </button>
-                </a>
+                    <label class="text-left mb-2 font-roboto font-bold text-lg text-gray-700" for="status">Status</label>
+                    <p class="text-left text-gray-700 font-roboto text-base"><?php echo $this->task['status']?></p><br>
+
+                    <label for="datetime" class=" text-left flex-grow block mb-2 font-roboto font-bold text-lg text-gray-700">Starting date</label>
+                    <p class="text-left text-gray-700 font-normal text-base"><?php echo $this->task['datetime']; if(empty($task['datetime'])){ echo " - ";} ?></p><br>
+
+                    <label for="endtime" class="text-left flex-grow block mb-2 font-roboto font-bold text-lg text-gray-700">Ending date</label>
+                    <p class="text-left text-gray-700 font-normal text-base"><?php echo $this->task['endtime']; if(empty($task['endtime'])){ echo " - ";}?></p><br>
+
+                    <label class="text-left mb-2 font-roboto font-bold text-lg text-gray-700" for="user_name">User</label>
+                    <p class="text-left text-gray-700 font-normal text-base"><?php echo $this->task['user']?></p>
+
+                    <!-- Botón de retroceso -->
+                    <a href="index">
+                        <button class="transition-colors bg-rose-400 hover:bg-purple-500 mt-5 p-1 rounded-lg w-1/6 text-white">
+                            Back
+                        </button>
+                    </a>
             </div>
 
         </div>

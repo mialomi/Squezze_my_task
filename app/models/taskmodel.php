@@ -7,7 +7,7 @@ class TaskModel {
     protected $dataFilePath = ROOT_PATH.'/app/models/data/data.json';
 
 
-    public function newTask(string $title, string $textArea, string $user,string $status, mixed $datetime, mixed $endTime) {
+    public function newTask(string $title, string $textArea, string $user, string $status, mixed $datetime, mixed $endTime) {
         // Contador
         $newId = count($this->readData()) + 1;
     
@@ -31,9 +31,9 @@ class TaskModel {
     
         
         $tasks = $this->readData();
-        // Luego añado data al array tasks
+        
         $tasks[] = $data;
-        // Guarda
+        
         $this->saveData($tasks);
     }
     private function saveData($task_data) : void{
@@ -62,7 +62,6 @@ class TaskModel {
         return null;
     }
        
-    
         public function getAllTasks()
         {
             return $this->readData();
@@ -71,20 +70,20 @@ class TaskModel {
         public function deleteTask($id){
            
            $tasks = $this->readData();
+
            foreach ($tasks as $key => $task) {
-            if ($task['id'] == $id) {
-                unset($tasks[$key]);
-                break;
+                if ($task['id'] == $id) {
+                    unset($tasks[$key]);
+                    break;
+                }
             }
-        }
+
             $this->saveData($tasks);
     
-           }
-    
-        
+        }
     
         public function modifyTask($id, $title, $textArea, $user, $status, $startTime, $endTime){ 
-                  //Llamas el metodo readData y lo envuelves en una variable, para luego iterar sobre ella
+                  
             $data = $this->readData();
             
             foreach ($data as $i => $editData){
@@ -105,7 +104,6 @@ class TaskModel {
             }
            
         }
-    
     
     }
     

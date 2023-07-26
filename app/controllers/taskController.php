@@ -9,7 +9,6 @@ class taskController extends Controller
 	
     public function __construct() {
 
-   
     }
     public function landingAction(){
         
@@ -24,51 +23,28 @@ class taskController extends Controller
         $this->view->tasks = $tasks;
     }
 
-    public function NewTaskAction()
-{
-        $taskList = new TaskModel();
-        $error_message = array();
+    public function NewTaskAction() {
 
-        // 1. Obtener los datos del formulario de creación de tareas y comprobar que no están vacíos
+        $taskList = new TaskModel();
+    
+        // Obtener los datos del formulario de creación de tareas
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $data = $_POST;
-
-            if (empty($data['title'])) {
-                $error_message['title'] = "Name is required";
-            } else {
-                $title = $data['title'];
-            }
-
-            if (empty($data['textarea'])) {
-                $error_message["textarea"] = "Text is required";
-            } else {
-                $text = $data['textarea'];
-            }
-
-            if (empty($data['user'])) {
-                $error_message['user'] = "User is required";
-            } else {
-                $user = $data['user'];
-            }
-
-            // 2. Validar si hay errores antes de agregar la tarea
-            if (empty($error_message)) {
-                // Agregar la tarea solo si no hay errores
-                $taskList->newTask(
-                    $data['title'],
-                    $data['textarea'],
-                    $data['user'],
-                    $data['status'],
-                    $data['datetime'],
-                    $data['endtime']
-                );
-
-                // Redireccionar a la página de lista de tareas
-                header('Location: index');
-                exit;
-            }
+    
+            // Agregar la tarea
+            $taskList->newTask(
+                $data['title'],
+                $data['textarea'],
+                $data['user'],
+                $data['status'],
+                $data['datetime'],
+                $data['endtime']
+            );
+            // Redireccionar a la página de lista de tareas
+            header('Location: index');
+            exit;
         }
-}
+    }
 
     public function editTaskAction() {
     
@@ -90,7 +66,7 @@ class taskController extends Controller
             $this->view->task =  $taskList->getTaskById($_GET['id']);
         
     }
-    public function deleteTaskAction(){
+    public function deleteTaskAction() {
 
         $taskList = new TaskModel();
 

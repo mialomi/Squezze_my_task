@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <title>main</title>
+    <title>Squezze My Task!</title>
+    
 </head>
 <div id=inicio></div>
 
@@ -84,8 +84,8 @@
                                 <?php echo $task['status']; ?>
                                 </span>
                             </td>
-                            <td class="w-full lg:w-auto p-3 tZext-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['datetime']; ?></td>
-                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['endtime']; if(empty($task['endtime'])){ echo " - ";}; ?></td>
+                            <td class="w-full lg:w-auto p-3 tZext-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['datetime']; if(empty($task['datetime'])){ echo " - ";} ?></td>
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['endtime']; if(empty($task['endtime'])){ echo " - ";} ?></td>
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['user']; ?></td>
                         
                             <!-- actions -->

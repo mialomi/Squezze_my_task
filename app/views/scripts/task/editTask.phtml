@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/themes/airbnb.min.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>EditTask</title>
+    <title>Squezze My Task!</title>
 </head>
 <body>
 
@@ -21,18 +21,19 @@
         <form action="" method="post">
 
             <div class="flex flex-col mb-4">
-                <label class="mb-2 font-roboto font-semibold text-lg text-gray-900" for="title_task">Title</label>
-                <input class="border border-fuchsia-300 py-2 px-3 text-gray-800" type="text" name="title" id="title" value="<?php echo $this->tasks['title']; ?>">
+                <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="title_task">Title</label>
+                <input class="border border-fuchsia-300 py-2 px-3 text-gray-800" type="text" name="title" id="title" required value="<?php echo $this->tasks['title']; ?>">
             </div>
 
             <div class="flex flex-col mb-4">
-                <label class="mb-2 font-roboto font-semibold text-lg text-gray-900" for="textarea">Text</label>
-                <input class="border border-purple-300 py-2 px-3 text-grey-800" value="<?php echo $this->tasks['textarea']?>"name="textarea" id="textarea"></input>
+                <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="textarea">Text</label>
+                <input class="border border-purple-300 py-2 px-3 text-grey-800" required value="<?php echo $this->tasks['textarea']?>"name="textarea" id="textarea"></input>
             </div>
 
             <div class="flex flex-col mb-4">
-                <label class="mb-2 font-roboto font-semibold text-lg text-gray-900" for="Status">Status</label>
-                <select class="border border-violet-300 py-2 px-3 text-grey-800" value="<?php echo $this->tasks['status']?>"name="status" id="status">
+                <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="Status">Status</label>
+                <select class="border border-violet-300 py-2 px-3 text-grey-500" value="<?php echo $this->tasks['status']?>"name="status" id="status">
+                    <option value= "" disabled selected>Select...</option>
                     <option>Pending</option>
                     <option>Running</option>
                     <option>Completed</option>
@@ -53,8 +54,9 @@
                         name="datetime"
                         type="text"
                         id="datetime"
+                        min="datetime"
                         data-input
-                        placeholder="<?php echo $this->tasks['datetime'];?>"
+                        value= "<?php echo $this->tasks['datetime'];?>"
                         class="block w-full px-2 focus:border-lime-300 focus:ring focus:ring-teal-200 focus:ring-opacity-50 rounded-l-md">
                     <a class="h-11 w-10 input-button cursor-pointer rounded-r-md bg-transparent "
                         title="clear" data-clear>
@@ -95,8 +97,8 @@
             </div>
 
             <div class="flex flex-col mb-4">
-                <label class="mb-2 font-roboto font-semibold text-lg text-gray-900" for="user_name">User</label>
-                <input class="border border-yellow-300 py-2 px-3 text-grey-800" value="<?php echo $this->tasks['user']; ?>" type="text" name="user" id="user">
+                <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="user_name">User</label>
+                <input class="border border-yellow-300 py-2 px-3 text-grey-800" required value="<?php echo $this->tasks['user']; ?>" type="text" name="user" id="user">
             </div>
 
             <!---botones -->
