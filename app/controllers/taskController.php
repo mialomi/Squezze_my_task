@@ -76,7 +76,6 @@ class taskController extends Controller
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $taskList->deleteTask($_GET['id']);
-        
 
         header( 'location: index');
             exit;
