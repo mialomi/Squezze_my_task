@@ -18,15 +18,6 @@ class TaskModel {
             $endTime = date("M d, Y g:i A");
         }
 
-
-       /* $currentDate = new DateTime($datetime);
-        $selectedDate = new DateTime($endTime);
-
-        if ($selectedDate < $currentDate) {
-
-            throw new Exception("Error: The selected date cannot be earlier than today.");
-        }*/
-
         $data = [
             'id' => $newId,
             'title' => $title,
@@ -102,13 +93,6 @@ class TaskModel {
                     $data[$i]['datetime']= $datetime;
                     $data[$i]['endtime']= $endTime; 
 
-                    $currentDate = new DateTime($datetime);
-                    $selectedDate = new DateTime($endTime);
-            
-                    if ($selectedDate < $currentDate) {
-            
-                        throw new Exception("Error: The selected date cannot be earlier than today.");
-                    }
                     //luego se guardan
     
                     $this ->saveData($data);
