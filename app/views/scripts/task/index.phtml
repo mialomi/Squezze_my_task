@@ -60,10 +60,24 @@
 
                         <tr class="odd:bg-white even:bg-stone-50 bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-4">
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                                <?php echo $task['title']; ?>
+                                <?php 
+                                $inici= 0; $final= 20; 
+                                echo substr ($task['title'], $inici, $final);
+                                if(strlen ($task['title']) > $final){
+                                    echo '...'; 
+                                }
+                            
+                                ?> 
                             </td>
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                                <?php echo $task['textarea'] ; ?>
+                            <?php 
+                                $inici= 0; $final= 20; 
+                                echo substr ($task['textarea'], $inici, $final);
+                                if(strlen ($task['textarea']) > $final){
+                                    echo '...'; 
+                                }
+                            
+                                ?> 
                             </td>
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                                 <span class="rounded py-1 px-3 text-xs font-semibold <?php
@@ -86,7 +100,15 @@
                             </td>
                             <td class="w-full lg:w-auto p-3 tZext-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['datetime']; if(empty($task['datetime'])){ echo " - ";} ?></td>
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['endtime']; if(empty($task['endtime'])){ echo " - ";} ?></td>
-                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['user']; ?></td>
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"> 
+                                <?php 
+                                $inici= 0; $final= 15; 
+                                echo substr ($task['user'], $inici, $final);
+                                if(strlen ($task['user']) > $final){
+                                    echo '...'; 
+                                }
+                            
+                                ?> 
                         
                             <!-- actions -->
 
