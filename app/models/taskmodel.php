@@ -6,7 +6,7 @@ class TaskModel {
     private array $task_list;
     protected $dataFilePath = ROOT_PATH.'/app/models/data/data.json';
 
-    public function newTask(string $title, string $textArea, string $user, string $status, mixed $datetime, mixed $endTime) {
+    public function newTask(string $title, string $text, string $user, string $status, mixed $datetime, mixed $endTime) {
 
         $newId = count($this->readData()) + 1;
 
@@ -21,7 +21,7 @@ class TaskModel {
         $data = [
             'id' => $newId,
             'title' => $title,
-            'textarea' => $textArea,
+            'textarea' => $text,
             'user' => $user,
             'status'=> $status,
             'datetime' => $datetime,
@@ -78,7 +78,7 @@ class TaskModel {
             $this->saveData($tasks);
 
            }
-           public function modifyTask($id, $title, $textArea, $user, $status, $datetime, $endTime){ 
+           public function modifyTask($id, $title, $text, $user, $status, $datetime, $endTime){ 
                   
             $data = $this->readData();
             
@@ -87,7 +87,7 @@ class TaskModel {
                 if ($editData['id'] == $id){
                     //Se procede a cambiar los datos del array, de la pos que marca i
                     $data[$i]['title']= $title;
-                    $data[$i]['textarea']= $textArea;
+                    $data[$i]['textarea']= $text;
                     $data[$i]['user']= $user;
                     $data[$i]['status'] = $status;
                     $data[$i]['datetime']= $datetime;
