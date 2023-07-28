@@ -13,22 +13,24 @@
 <body>
 
 
-<!-- formulario -->
+
+
 <div class="flex justify-center items-center w-full bg-gradient-to-r from-yellow-200 to-purple-300">
-    <div class="w-2/5 bg-white rounded shadow-2xl p-8 m-4">
+    
+    <div class="w-2/5 max-sm:w-full max-md:w-2/3 max-lg:w-1/2 bg-white rounded shadow-2xl p-8 m-4">
         
-    <h1 class="block w-full font-roboto font-semibold text-center text-gray-700 text-2xl mb-5">New Task</h1>
+    <h1 class="w-full font-roboto font-semibold text-center text-gray-700 text-2xl mb-5">New Task</h1>
         
         <form action="" method="post">
 
-            <div class="flex flex-col mb-4">
+            <div class="flex flex-col mb-4 sm-w-1/2">
                 <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="title_task">Title</label>
-                <input class="border border-fuchsia-300 py-2 px-3 text-gray-800" type="text" name="title" id="title" required>
+                <input class="border border-fuchsia-300 py-2 px-3 text-gray-800" type="text" name="title" id="title" maxlength="20" placeholder="Max 20 characters" required>
             </div>
             
             <div class="flex flex-col mb-4">
                 <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="textarea">Text</label>
-                <textarea class="border border-purple-300 py-2 px-3 text-grey-800" name="textarea" id="textarea" required></textarea>
+                <textarea class="border border-purple-300 py-2 px-3 text-grey-800" name="textarea" id="textarea" maxlength="120" placeholder="Max 120 characters" required></textarea>
             </div>
 
             <div class="flex flex-col mb-4">
@@ -43,7 +45,7 @@
         <!-- Starting date -->
             <div
                 x-data
-                x-init="flatpickr($refs.datetimewidget, {wrap: true, enableTime: true, dateFormat: 'M j, Y h:i K'});"
+                x-init="flatpickr($refs.datetimewidget, {wrap: true, enableTime: true, dateFormat: 'M j, Y h:i K', minDate: 'today'});"
                 x-ref="datetimewidget"
                 name="datetime"
                 class="flex flex-col flatpickr container mx-auto col-span-6 sm:col-span-6 mt-5 mb-5">
@@ -54,9 +56,12 @@
                         name="datetime"
                         type="text"
                         id="datetime"
+                        
                         data-input
+                        
                         placeholder="Select.."
-                        class="block w-full px-2 focus:border-lime-300 focus:ring focus:ring-teal-200 focus:ring-opacity-50 rounded-l-md">
+                        class="block w-full px-2 focus:border-lime-300 focus:ring focus:ring-teal-200 focus:ring-opacity-50 rounded-l-md"
+                        min="datetime-local">
                     <a class="h-11 w-10 input-button cursor-pointer rounded-r-md bg-transparent "
                         title="clear" data-clear>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mt-2 ml-1" viewBox="0 0 20 20" fill="#94ADD7">
@@ -84,6 +89,7 @@
                         data-input
                         placeholder="Select.."
                         class="block w-full px-2 focus:border-lime-300 focus:ring focus:ring-teal-200 focus:ring-opacity-50 rounded-l-md">
+                        
                     <a class="h-11 w-10 input-button cursor-pointer rounded-r-md bg-transparent "
                         title="clear" data-clear>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mt-2 ml-1" viewBox="0 0 20 20" fill="#BDF741">
@@ -96,10 +102,10 @@
             </div>
             <div class="flex flex-col mb-4">
                 <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="user_name">User</label>
-                <input class="border border-yellow-300 py-2 px-3 text-grey-800" type="text" name="user" id="user" required>
+                <input class="border border-yellow-300 py-2 px-3 text-grey-800" type="text" name="user" id="user" maxlength="20" placeholder="Max 20 characters" required>
             </div>
             
-            <button class="block bg-rose-300 hover:bg-rose-500 mt-7 text-white uppercase text-lg mx-auto p-2 rounded" type="submit">Save task</button>
+            <button class="block bg-rose-300 hover:bg-rose-500 mt-7 text-white uppercase text-lg mx-auto p-3 rounded-full" type="submit">Save task</button>
         </form>
     </div>
 </div>

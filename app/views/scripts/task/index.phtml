@@ -17,29 +17,28 @@
 
     <!-- page -->
     <main class="min-h-screen w-full bg-gradient-to-r from-yellow-200 to-purple-300 p-2 text-gray-700" x-data="layout">
-        <!-- header page -->
+    
 
         <header class="flex items-center justify-left w-full py-4">
-            <div class="text-center font-roboto text-xl font-semibold tracking-wide m-3">Squezze my task</div>
+            <div class="text-center font-roboto text-3xl font-semibold tracking-wide m-3">Squezze my task</div>
             </div>
         </header>
 
-        <!-- botón añadir task--->
+        
 
         <div class="flex justify-center m-5 p-5">
 
-            <a href="newTask" class="flex items-center space-x-1 bg-amber-200 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-pink-600">
+            <a href="newTask" class="flex items-center space-x-1 bg-amber-200 font-roboto font-semibold rounded-full px-4 py-4 hover:bg-purple-300">
                 <span class="material-symbols-outlined">add</span>
                 <span>New task</span>
             </a>
-
         </div>
 
         <div class="flex justify-center">
 
             <table class="w-5/6 rounded-lg">
 
-                <!-- Fila encabezados-->
+                
                 <thead>
                     <tr>
                         <th class="p-3 font-bold uppercase bg-fuchsia-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Title</th>
@@ -60,11 +59,22 @@
 
                         <tr class="odd:bg-white even:bg-stone-50 bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-4">
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                                <?php echo $task['title']; ?>
+                                <?php 
+                                $inici= 0; $final= 20; 
+                                echo substr ($task['title'], $inici, $final);
+                                if(strlen ($task['title']) > $final){
+                                    echo '...'; 
+                                }
+                            
+                                ?> 
                             </td>
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                                <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px;" title="<?php echo $task['textarea']; ?>">
                                 <?php echo $task['textarea']; ?>
-                            </td>
+                                </div>
+                                </td>
+
+                            
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                                 <span class="rounded py-1 px-3 text-xs font-semibold <?php
                                                 switch (strtolower($task['status'])) {
@@ -84,20 +94,28 @@
                                 <?php echo $task['status']; ?>
                                 </span>
                             </td>
-                            <td class="w-full lg:w-auto p-3 tZext-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['datetime']; if(empty($task['datetime'])){ echo " - ";} ?></td>
-                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['endtime']; if(empty($task['endtime'])){ echo " - ";} ?></td>
-                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['user']; ?></td>
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center text-sm border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['datetime']; if(empty($task['datetime'])){ echo " - ";} ?></td>
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center text-sm border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['endtime']; if(empty($task['endtime'])){ echo " - ";} ?></td>
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"> 
+                                <?php 
+                                $inici= 0; $final= 15; 
+                                echo substr ($task['user'], $inici, $final);
+                                if(strlen ($task['user']) > $final){
+                                    echo '...'; 
+                                }
+                            
+                                ?> 
                         
                             <!-- actions -->
 
-                            <td class="w-full lg:w-auto p-3 text-gray-800 items-center border border-b block lg:table-cell relative lg:static">
-                                <a href="show?id=<?php echo $task['id']; ?>" class="text-blue-400 hover:text-blue-600 underline pl-6"><span class="material-symbols-outlined bg-">visibility</span></a>
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                                <a href="show?id=<?php echo $task['id']; ?>" class="text-blue-400 text-center hover:text-blue-600 underline"><span class="material-symbols-outlined bg-">visibility</span></a>
                             </td>
-                            <td class="w-full lg:w-auto p-3 text-gray-800 items-center border border-b block lg:table-cell relative lg:static">
-                                <a href="edit?id=<?php echo $task['id']; ?>" class="text-blue-400 hover:text-blue-600 underline pl-6"><span class="material-symbols-outlined">edit</span></a>
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                                <a href="edit?id=<?php echo $task['id']; ?>" class="text-blue-400 text-center hover:text-blue-600 underline"><span class="material-symbols-outlined">edit</span></a>
                             </td>
-                            <td class="w-full lg:w-auto p-3 text-gray-800 items-center border border-b block lg:table-cell relative lg:static">
-                                <a href="delete?id=<?php echo $task['id']; ?>" class="text-rose-400 hover:text-rose-600 underline pl-6"><span class="material-symbols-outlined">delete</span></a>
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"> 
+                                <a href="delete?id=<?php echo $task['id']; ?>" class=" text-rose-400 hover:text-rose-600 underline"><span class="material-symbols-outlined">delete</span></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

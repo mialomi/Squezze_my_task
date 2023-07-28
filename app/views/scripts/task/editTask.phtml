@@ -12,31 +12,35 @@
 <body>
 
 
-<!-- formulario edit task-->
-<div class="flex justify-center items-center w-full bg-gradient-to-r from-yellow-200 to-purple-300">
-    <div class="w-2/5 bg-white rounded shadow-2xl p-8 m-4">
+
+
+
+<div class="flex justify-center items-center min-h-screen bg-gradient-to-r from-yellow-200 to-purple-300">
+
+    <div class="w-2/5 max-sm:w-full max-md:w-2/3 max-lg:w-1/2 bg-white rounded shadow-2xl p-8 m-4">
+    
         
-    <h1 class="block w-full font-roboto font-semibold text-center text-gray-700 text-2xl mb-5">Edit Task</h1>
+        <h1 class="block w-full font-roboto font-semibold text-center text-gray-700 text-2xl mb-5">Edit Task</h1>
         
         <form action="" method="post">
 
             <div class="flex flex-col mb-4">
                 <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="title_task">Title</label>
-                <input class="border border-fuchsia-300 py-2 px-3 text-gray-800" type="text" name="title" id="title" required value="<?php echo $this->tasks['title']; ?>">
+                <input class="border border-fuchsia-300 py-2 px-3 text-gray-800" maxlength="20" type="text" name="title" id="title" required value="<?php echo $this->tasks['title']; ?>">
             </div>
 
             <div class="flex flex-col mb-4">
                 <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="textarea">Text</label>
-                <input class="border border-purple-300 py-2 px-3 text-grey-800" required value="<?php echo $this->tasks['textarea']?>"name="textarea" id="textarea"></input>
+                <textarea class="border border-purple-300 py-2 px-3 text-gray-800" maxlength="120" required name="textarea" id="textarea"><?php echo $this->tasks['textarea']; ?></textarea>
             </div>
 
             <div class="flex flex-col mb-4">
                 <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="Status">Status</label>
-                <select class="border border-violet-300 py-2 px-3 text-grey-500" value="<?php echo $this->tasks['status']?>"name="status" id="status">
-                    <option value= "" disabled selected>Select...</option>
-                    <option>Pending</option>
-                    <option>Running</option>
-                    <option>Completed</option>
+                <select class="border border-violet-300 py-2 px-3 text-grey-500" name="status" id="status">
+                <option value="" disabled selected>Select...</option>
+                    <option <?php echo ($this->tasks['status'] === 'cc') ? 'selected' : ''; ?>>Pending</option>
+                    <option <?php echo ($this->tasks['status'] === 'Running') ? 'selected' : ''; ?>>Running</option>
+                    <option <?php echo ($this->tasks['status'] === 'Completed') ? 'selected' : ''; ?>>Completed</option>
                 </select>
             </div>
 
@@ -57,7 +61,7 @@
                         min="datetime"
                         data-input
                         value= "<?php echo $this->tasks['datetime'];?>"
-                        class="block w-full px-2 focus:border-lime-300 focus:ring focus:ring-teal-200 focus:ring-opacity-50 rounded-l-md">
+                        class="text-gray-700 block w-full px-2 focus:border-lime-300 focus:ring focus:ring-teal-200 focus:ring-opacity-50 rounded-l-md">
                     <a class="h-11 w-10 input-button cursor-pointer rounded-r-md bg-transparent "
                         title="clear" data-clear>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mt-2 ml-1" viewBox="0 0 20 20" fill="#94ADD7">
@@ -67,8 +71,8 @@
                         </svg>
                     </a>
                 </div>
-            </div>
-            <!--Closing date -->
+
+            <!-- Closing date -->
             <div
                 x-data
                 x-init="flatpickr($refs.datetimewidget, {wrap: true, enableTime: true, dateFormat: 'M j, Y h:i K'});"
@@ -83,8 +87,8 @@
                         type="text"
                         id="endtime"
                         data-input
-                        placeholder="<?php echo $this->tasks['endtime'];?>"
-                        class="block w-full px-2 focus:border-lime-300 focus:ring focus:ring-teal-200 focus:ring-opacity-50 rounded-l-md">
+                        value="<?php echo $this->tasks['endtime'];?>"
+                        class="text-gray-700 block w-full px-2 focus:border-lime-300 focus:ring focus:ring-teal-200 focus:ring-opacity-50 rounded-l-md">
                     <a class="h-11 w-10 input-button cursor-pointer rounded-r-md bg-transparent "
                         title="clear" data-clear>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mt-2 ml-1" viewBox="0 0 20 20" fill="#BDF741">
@@ -94,21 +98,21 @@
                         </svg>
                     </a>
                 </div>
-            </div>
 
             <div class="flex flex-col mb-4">
                 <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="user_name">User</label>
-                <input class="border border-yellow-300 py-2 px-3 text-grey-800" required value="<?php echo $this->tasks['user']; ?>" type="text" name="user" id="user">
+                <input class="border border-yellow-300 py-2 px-3 text-gray-800" maxlength="20" required value="<?php echo $this->tasks['user']; ?>" type="text" name="user" id="user">
             </div>
 
-            <!---botones -->
+           
 
-            <div class="flex flex-direction-row justify-center items-center">
-                <a href="index" class="block bg-rose-300 hover:bg-rose-500 text-white font-roboto uppercase text-lg m-2 p-2 px-7 py-2 rounded-md">Back</a>
-                <button class="block bg-rose-300 hover:bg-rose-500 font-roboto text-white uppercase text-lg m-2 p-2  px-7 py-2 rounded-md" type="submit">Save changes</button>
-           </div>
+            <div class="flex flex-col sm:flex-row justify-center items-center mt-3">
+                <a href="index" class="block bg-rose-300 hover:bg-rose-500 text-white font-roboto uppercase text-lg m-2 p-2 px-7 py-2 rounded-full">Back</a>
+                <button class="block bg-rose-300 hover:bg-rose-500 font-roboto text-white uppercase text-lg m-2 p-2 px-7 py-2 rounded-full" type="submit">Save changes</button>
+            </div>
         </form>
     </div>
 </div>
+
 </body>
 </html>
