@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Squezze My Task!</title>
+    
+</head>
+<div id=inicio></div>
+
+<body>
+
+    <!-- page -->
+    <main class="min-h-screen w-full bg-gradient-to-r from-yellow-200 to-purple-300 p-2 text-gray-700" x-data="layout">
+    
+
+        <header class="flex items-center justify-left w-full py-4">
+            <div class="text-center font-roboto text-3xl font-semibold tracking-wide m-3">Squezze my task</div>
+            </div>
+        </header>
+
+        
+
+        <div class="flex justify-center m-5 p-5">
+
+            <a href="newTask" class="flex items-center space-x-1 bg-amber-200 font-roboto font-semibold rounded-full px-4 py-4 hover:bg-purple-300">
+                <span class="material-symbols-outlined">add</span>
+                <span>New task</span>
+            </a>
+        </div>
+
+        <div class="flex justify-center">
+
+            <table class="w-5/6 rounded-lg">
+
+                
+                <thead>
+                    <tr>
+                        <th class="p-3 font-bold uppercase bg-fuchsia-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Title</th>
+                        <th class="p-3 font-bold uppercase bg-purple-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Text</th>
+                        <th class="p-3 font-bold uppercase bg-violet-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Status</th>
+                        <th class="p-3 font-bold uppercase bg-indigo-100 text-gray-600 border border-gray-300 hidden lg:table-cell">Starting date</th>
+                        <th class="p-3 font-bold uppercase bg-lime-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Ending date</th>
+                        <th class="p-3 font-bold uppercase bg-yellow-200 text-gray-600 border border-gray-300 hidden lg:table-cell">User</th>
+                        <th class="p-3 font-bold uppercase bg-amber-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Show</th>
+                        <th class="p-3 font-bold uppercase bg-amber-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Edit</th>
+                        <th class="p-3 font-bold uppercase bg-amber-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <!-- LIST TASKS -->
+                    <?php foreach ($this->tasks as $task) : ?>
+
+                        <tr class="odd:bg-white even:bg-stone-50 bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-4">
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                                <?php 
+                                $inici= 0; $final= 20; 
+                                echo substr ($task['title'], $inici, $final);
+                                if(strlen ($task['title']) > $final){
+                                    echo '...'; 
+                                }
+                            
+                                ?> 
+                            </td>
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                                <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px;" title="<?php echo $task['textarea']; ?>">
+                                <?php echo $task['textarea']; ?>
+                                </div>
+                                </td>
+
+                            
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                                <span class="rounded py-1 px-3 text-xs font-semibold <?php
+                                                switch (strtolower($task['status'])) {
+                                                    case 'pending':
+                                                    echo 'bg-gradient-to-r from-orange-600 to-orange-300 text-white';
+                                                    break;
+                                                    case 'running':
+                                                    echo 'bg-gradient-to-r from-yellow-400 to-yellow-300 text-white';
+                                                    break;
+                                                    case 'completed':
+                                                    echo 'bg-gradient-to-r from-lime-500 to-lime-300 text-white';
+                                                    break;
+                                                    default:
+                                                    echo 'bg-white';
+                                                    break;
+                                                }?> ">
+                                <?php echo $task['status']; ?>
+                                </span>
+                            </td>
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center text-sm border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['datetime']; if(empty($task['datetime'])){ echo " - ";} ?></td>
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center text-sm border border-b text-center block lg:table-cell relative lg:static"><?php echo $task['endtime']; if(empty($task['endtime'])){ echo " - ";} ?></td>
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"> 
+                                <?php 
+                                $inici= 0; $final= 15; 
+                                echo substr ($task['user'], $inici, $final);
+                                if(strlen ($task['user']) > $final){
+                                    echo '...'; 
+                                }
+                            
+                                ?> 
+                        
+                            <!-- actions -->
+
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                                <a href="show?id=<?php echo $task['id']; ?>" class="text-blue-400 text-center hover:text-blue-600 underline"><span class="material-symbols-outlined bg-">visibility</span></a>
+                            </td>
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                                <a href="edit?id=<?php echo $task['id']; ?>" class="text-blue-400 text-center hover:text-blue-600 underline"><span class="material-symbols-outlined">edit</span></a>
+                            </td>
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"> 
+                                <a href="delete?id=<?php echo $task['id']; ?>" class=" text-rose-400 hover:text-rose-600 underline"><span class="material-symbols-outlined">delete</span></a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>

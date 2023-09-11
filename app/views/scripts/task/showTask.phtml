@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Squezze My Task!</title>
+</head>
+<body>
+
+<!-- show task -->
+
+<div class='flex items-center justify-center min-h-screen bg-gradient-to-r from-yellow-300 to-purple-400'>
+
+        <div class="w-2/5 max-sm:w-full max-md:w-2/3 max-lg:w-1/2 bg-white rounded shadow-2xl p-8 m-4">
+
+                
+            <div class="w-full justify-center items-center text-center">
+
+             
+                <div class="flex flex-col justify-center items-center mb-4">
+
+                    <label class="mb-2 font-roboto font-bold text-lg text-gray-700" for="title_task">Title</label>
+                    <p class="text-left text-gray-700 font-roboto text-base"><?php $this->task['title'];?></p><br>
+
+                    <label class="mb-2 font-roboto font-bold text-lg text-gray-700" for="textarea">Text</label>
+                    <p class="text-gray-700 font-roboto text-base"><?php echo $this->task['textarea'];?></p><br>
+
+                    <label class="mb-2 font-roboto font-bold text-lg text-gray-700" for="status">Status</label>
+                    <p class="text-gray-700 font-roboto text-base"><?php echo $this->task['status']?></p><br>
+
+                    <label for="datetime" class=" text-left flex-grow block mb-2 font-roboto font-bold text-lg text-gray-700">Starting date</label>
+                    <p class="text-gray-700 font-normal text-base"><?php echo $this->task['datetime']; if(empty($task['datetime'])){ echo " - ";} ?></p><br>
+
+                    <label for="endtime" class="text-left flex-grow block mb-2 font-roboto font-bold text-lg text-gray-700">Ending date</label>
+                    <p class="text-gray-700 font-normal text-base"><?php echo $this->task['endtime']; if(empty($task['endtime'])){ echo " - ";}?></p><br>
+
+                    <label class="mb-2 font-roboto font-bold text-lg text-gray-700" for="user_name">User</label>
+                    <p class="text-left text-gray-700 font-normal text-base"><?php echo $this->task['user'];?></p>
+
+                    
+                  
+            </div>
+            <a href="index">
+                        <button class="transition-colors bg-rose-400 hover:bg-purple-500 mt-5 p-3 rounded-full w-1/6 text-white">
+                            Back
+                        </button>
+                    </a>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

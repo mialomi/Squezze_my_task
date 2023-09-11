@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/themes/airbnb.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Squezze My Task!</title>
+</head>
+<body>
+
+
+
+
+
+<div class="flex justify-center items-center min-h-screen bg-gradient-to-r from-yellow-200 to-purple-300">
+
+    <div class="w-2/5 max-sm:w-full max-md:w-2/3 max-lg:w-1/2 bg-white rounded shadow-2xl p-8 m-4">
+    
+        
+        <h1 class="block w-full font-roboto font-semibold text-center text-gray-700 text-2xl mb-5">Edit Task</h1>
+        
+        <form action="" method="post">
+
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="title_task">Title</label>
+                <input class="border border-fuchsia-300 py-2 px-3 text-gray-800" maxlength="20" type="text" name="title" id="title" required value="<?php echo $this->tasks['title']; ?>">
+            </div>
+
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="textarea">Text</label>
+                <textarea class="border border-purple-300 py-2 px-3 text-gray-800" maxlength="120" required name="textarea" id="textarea"><?php echo $this->tasks['textarea']; ?></textarea>
+            </div>
+
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="Status">Status</label>
+                <select class="border border-violet-300 py-2 px-3 text-grey-500" name="status" id="status">
+                <option value="" disabled selected>Select...</option>
+                    <option <?php echo ($this->tasks['status'] === 'cc') ? 'selected' : ''; ?>>Pending</option>
+                    <option <?php echo ($this->tasks['status'] === 'Running') ? 'selected' : ''; ?>>Running</option>
+                    <option <?php echo ($this->tasks['status'] === 'Completed') ? 'selected' : ''; ?>>Completed</option>
+                </select>
+            </div>
+
+            <!-- Starting date -->
+            <div
+                x-data
+                x-init="flatpickr($refs.datetimewidget, {wrap: true, enableTime: true, dateFormat: 'M j, Y h:i K'});"
+                x-ref="datetimewidget"
+                name="datetime"
+                class="flex flex-col flatpickr container mx-auto col-span-6 sm:col-span-6 mt-5 mb-5">
+                <label for="datetime" class="flex-grow block mb-2 font-roboto font-semibold text-lg text-gray-700">Starting date</label>
+                <div class="flex align-middle align-content-center border border-indigo-200">
+                    <input
+                        x-ref="datetime"
+                        name="datetime"
+                        type="text"
+                        id="datetime"
+                        min="datetime"
+                        data-input
+                        value= "<?php echo $this->tasks['datetime'];?>"
+                        class="text-gray-700 block w-full px-2 focus:border-lime-300 focus:ring focus:ring-teal-200 focus:ring-opacity-50 rounded-l-md">
+                    <a class="h-11 w-10 input-button cursor-pointer rounded-r-md bg-transparent "
+                        title="clear" data-clear>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mt-2 ml-1" viewBox="0 0 20 20" fill="#94ADD7">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                </div>
+
+            <!-- Closing date -->
+            <div
+                x-data
+                x-init="flatpickr($refs.datetimewidget, {wrap: true, enableTime: true, dateFormat: 'M j, Y h:i K'});"
+                x-ref="datetimewidget"
+                name="endtime"
+                class="flex flex-col flatpickr container mx-auto col-span-6 sm:col-span-6 mt-5 mb-5">
+                <label for="endtime" class="flex-grow block mb-2 font-roboto font-semibold text-lg text-gray-700">Ending date</label>
+                <div class="flex align-middle align-content-center border border-lime-200">
+                    <input
+                        x-ref="endtime"
+                        name="endtime"
+                        type="text"
+                        id="endtime"
+                        data-input
+                        value="<?php echo $this->tasks['endtime'];?>"
+                        class="text-gray-700 block w-full px-2 focus:border-lime-300 focus:ring focus:ring-teal-200 focus:ring-opacity-50 rounded-l-md">
+                    <a class="h-11 w-10 input-button cursor-pointer rounded-r-md bg-transparent "
+                        title="clear" data-clear>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mt-2 ml-1" viewBox="0 0 20 20" fill="#BDF741">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                </div>
+
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-roboto font-semibold text-lg text-gray-700" for="user_name">User</label>
+                <input class="border border-yellow-300 py-2 px-3 text-gray-800" maxlength="20" required value="<?php echo $this->tasks['user']; ?>" type="text" name="user" id="user">
+            </div>
+
+           
+
+            <div class="flex flex-col sm:flex-row justify-center items-center mt-3">
+                <a href="index" class="block bg-rose-300 hover:bg-rose-500 text-white font-roboto uppercase text-lg m-2 p-2 px-7 py-2 rounded-full">Back</a>
+                <button class="block bg-rose-300 hover:bg-rose-500 font-roboto text-white uppercase text-lg m-2 p-2 px-7 py-2 rounded-full" type="submit">Save changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

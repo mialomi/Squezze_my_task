@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Squezze My Task!</title>
+</head>
+<body>
+
+
+
+    <div class="bg-gradient-to-r from-yellow-300 to-purple-400 bg-opacity-50 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0">
+      <div class="flex flex-col bg-white px-10 py-10 rounded-md text-center max-sm:px-20 sm:py-20">
+
+          <h1 class="text-xl mb-4 font-roboto font-semibold text-slate-700">Delete task</h1>
+          <p class="text-base mb-9 font-roboto font-semibold text-slate-500">Are you sure?</p>
+
+          <form method="post" action="" class="sm:flex sm:justify-center">
+
+              <div class="flex flex-col sm:flex-row sm:justify-center sm:items-center">
+
+                  <a href="index" class="block bg-rose-300 hover:bg-rose-500 text-white font-roboto uppercase text-lg m-2 p-2 px-7 py-2 rounded-full">Cancel</a>
+                
+                  <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
+                
+                  <input type="submit" name="Delete" value="Confirm" class="cursor-pointer block bg-rose-300 hover:bg-rose-500 font-roboto text-white uppercase text-lg m-2 p-2 px-5 py-2 rounded-full">
+              
+              </div>
+          
+          </form>
+    </div>
+</div>
+
+</body>
+</html>
