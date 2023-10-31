@@ -1,83 +1,44 @@
-# PHP initial Project
-Main structure of php project. Folders / files:
-- **app**
-  - **controllers**
-  - **models**
-  - **views**
-- **config**
-- **lib**
-  - **base**
-- **web**
+# Squeeze my Task 
 
-### Usage
-
-The web/index.php is the heart of the system.
-This means that your web applications root folder is the “web” folder.
-
-All requests go through this file and it decides how the routing of the app
-should be.
-You can add additional hooks in this file to add certain routes.
-
-### Project Structure
-
-The root of the project holds a few directories:
-**/app** This is the folder where your magic will happen. Use the views, controllers and models folder for your app code.
-**/config** this folder holds a few configuration files. Currently only the connection to the database.
-**/lib** This is where you should put external libraries and other external files.
-**/lib/base** The library files. Don’t change these :)
-**/web** This folder holds files that are to be “downloaded” from your app. Stylesheets, javascripts and images used. (and more of course)
-
-The system uses a basic MVC structure, with your web app’s files located in the
-“app” folder.
-
-#### app/controllers
-Your application’s controllers should be defined here.
-
-All controller names should end with “Controller”. E.g. TestController.
-All controllers should inherit the library’s “Controller” class.
-However, you should generally just make an ApplicationController, which extends
-the Controller. Then you can defined beforeFilters etc in that, which will get run
-at every request.
-
-#### app/models
-Models handles database interaction etc.
-
-All models should inherit from the Model class, which provides basic functionality.
-The Model class handles basic functionality such as:
-
-Setting up a database connection (using PDO)
-fetchOne(ID)
-save(array) → both update/create
-delete(ID)
-app/views
-Your view files.
-The structure is made so that having a controller named TestController, it looks
-in the app/views/test/ folder for it’s view files.
-
-All view files end with .phtml
-Having an action in the TestController called index, the view file
-app/views/test/index.phtml will be rendered as default.
-
-#### config/routes.php
-Your routes around the system needs to be defined here.
-A route consists of the URL you want to call + the controller#action you want it
-to hit.
-
-An example is:
-$routes = array(
-‘/test’ => ‘test#index’ // this will hit the TestController’s indexAction method.
-);
-
-#### Error handling
-A general error handling has been added.
-
-If a route doesn’t exist, then the error controller is hit.
-If some other exception was thrown, the error controller is hit.
-As default, the error controller just shows the exception occured, so remember
-to style the error controller’s view file (app/views/error/error.phtml)
+🍋 **Squeeze My Task** is a web and mobile application designed to help you effectively manage your daily tasks.
 
 
-### Utilities
-- [PHP Developers Guide](https://www.php.net/manual/en/index.php).
-- .gitignore file configuration. [See Official Docs](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).
-- Git branches. [See Official Docs](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell).
+## Features
+
+With **Squeeze My Task**, you can seamlessly manage your daily tasks, thanks to the following features:
+
+-   **Task Management:** Create, edit, view, and delete your daily tasks effortlessly.
+-   **Task Attributes:** Tasks come with various attributes, including:
+    -   **Title:** Describe your task succinctly.
+    -   **Description:** Add detailed information about your task.
+    -   **Status:** Keep track of your tasks with statuses like "Pending," "In Progress," and "Completed."
+    -    **Start and End Dates:** Assign start and end dates for each task.
+    -   **User Assignment:** Assign tasks to specific users.
+
+
+## Technology Stack
+
+**Squeeze My Task** is built following the **Model-View-Controller** (MVC) pattern. It's coded in PHP, with views designed using **HTML** and styled with **Tailwind CSS**. The responsive design ensures a seamless user experience on various devices. Squeeze My Task uses a file-based **JSON database** for data persistence
+
+Enjoy streamlined task management with **Squeeze My Task** and enhance your productivity.
+
+
+## Prerequisites and Usage with XAMPP
+
+Before you get started with **Squeeze My Task**, please ensure that you have [XAMPP](https://www.apachefriends.org/index.html) (or a similar web server stack) installed on your system. XAMPP provides an environment that allows you to run PHP-based applications locally.
+
+### Installation Steps:
+
+1.  Download and install XAMPP from the official website.
+2.  Launch XAMPP and start the Apache and MySQL services.
+
+### Running **Squeeze My Task**:
+
+1.  Clone or download this repository to your local machine.
+    
+2.  Place the project files in the XAMPP "htdocs" directory. By default, this directory can be found at `C:\xampp\htdocs` on Windows, `/Applications/XAMPP/htdocs` on macOS, or `/opt/lampp/htdocs` on Linux.
+    
+3.  Open your web browser and access **Squeeze My Task** by visiting `http://localhost/squeeze-my-task` in your web browser. Adjust the URL if you placed the project files in a subdirectory within "htdocs."
+    
+
+Now you can start using **Squeeze My Task** to manage your daily tasks locally using XAMPP.
